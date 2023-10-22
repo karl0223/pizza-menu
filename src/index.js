@@ -4,13 +4,36 @@ import ReactDOM from "react-dom/client";
 function App() {
   return (
     <div>
-      <h1>Hello World!</h1>
+      <Header />
+      <Menu />
+      <Footer />
+    </div>
+  );
+}
+
+const Header = () => {
+  return <h1>Fast React Pizza Co.</h1>;
+};
+
+const Menu = () => {
+  return (
+    <div>
+      <h2>Menu</h2>
+      <Pizza />
       <Pizza />
       <Pizza />
       <Pizza />
     </div>
   );
-}
+};
+
+const Footer = () => {
+  return (
+    <footer>
+      <p>Fast React Pizza Co. 2020</p>
+    </footer>
+  );
+};
 
 function Pizza() {
   return (
