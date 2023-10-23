@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./index.css";
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
       <Menu />
       <Footer />
@@ -12,24 +13,35 @@ function App() {
 }
 
 const Header = () => {
-  return <h1>Fast React Pizza Co.</h1>;
+  // const style = { color: "red", fontSize: "2rem", textTransform: "uppercase" };
+  const style = {};
+  return (
+    <header className="header">
+      <h1 style={style}>Fast React Pizza Co.</h1>
+    </header>
+  );
 };
 
 const Menu = () => {
   return (
-    <div>
-      <h2>Menu</h2>
+    <main className="menu">
+      <h2>Our Menu</h2>
       <Pizza />
       <Pizza />
       <Pizza />
       <Pizza />
-    </div>
+    </main>
   );
 };
 
 const Footer = () => {
+  const hour = new Date().getHours();
+  const openHour = 12;
+  const closeHour = 22;
+  const isOpen = hour >= openHour && hour < closeHour;
+
   return (
-    <footer>
+    <footer className="footer">
       <p>Fast React Pizza Co. 2020</p>
     </footer>
   );
