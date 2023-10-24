@@ -24,22 +24,20 @@ const Header = () => {
 };
 
 const Menu = () => {
+  const pizzas = pizzaData;
+  const numPizza = pizzas.length;
+
   return (
     <main className="menu">
       <h2>Our Menu</h2>
 
-      <ul className="pizzas">
-        {pizzaData.map((pizza) => (
-          <Pizza pizzaObj={pizza} key={pizza.name} />
-        ))}
-      </ul>
-
-      {/* <Pizza
-        name="Pizza Spinaci"
-        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
-        photoName="pizzas/spinaci.jpg"
-        price={10}
-      /> */}
+      {numPizza > 0 && (
+        <ul className="pizzas">
+          {pizzaData.map((pizza) => (
+            <Pizza pizzaObj={pizza} key={pizza.name} />
+          ))}
+        </ul>
+      )}
     </main>
   );
 };
@@ -65,8 +63,12 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <p>Fast React Pizza Co. 2020</p>
-      <span>We are {isOpen ? "open" : "closed"}!</span>
+      {isOpen && (
+        <div className="order">
+          <p>We're open Until {closeHour}:00. Come visit us or order online.</p>
+          <button className="btn">Order</button>
+        </div>
+      )}
     </footer>
   );
 };
